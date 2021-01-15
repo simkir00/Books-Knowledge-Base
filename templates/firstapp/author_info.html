@@ -1,0 +1,42 @@
+{% extends "firstapp/base.html" %}
+
+
+{% block stc %}{% load static %}{% endblock stc %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <link rel="stylesheet" href="{% static "css/info.css" %}">
+{% endblock css %}
+
+
+{% block title %}{{ author }}{% endblock title %}
+
+
+{% block navbar %}
+    <li class="nav-item"><a href="/" class="nav-link">Главная</a></li>
+    <li class="nav-item"><a href="/books/" class="nav-link">Книги</a></li>
+    <li class="nav-item active"><a href="/authors/" class="nav-link">Авторы</a></li>
+{% endblock navbar %}
+
+
+{% block content %}
+    <h1>{{ author }}</h1>
+    <div class="main">
+        <div class="img">
+            <img src="{% static "images/author-info-default.png" %}">
+        </div>
+        <div class="dscr">
+            <h2>Позновательная справка</h2>
+            <p>
+                {{ author.info }}
+            </p>
+        </div>
+
+        <div class="books">
+        <h2>Книги автора</h2>
+        {% for book in books %}
+            <li><a href="/books/{{ book.pk }}/">{{ book.title }}</a></li>
+        {% endfor %}
+    </div>
+    </div>
+
+{% endblock content %}

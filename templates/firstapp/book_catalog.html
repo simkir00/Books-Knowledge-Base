@@ -1,0 +1,59 @@
+{% extends "firstapp/base.html" %}
+
+
+{% block stc %}{% load static %}{% endblock stc %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <style type="text/css">
+        li{
+            text-align: center;
+        }
+    </style>
+{% endblock css %}
+
+
+{% block navbar %}
+    <li class="nav-item"><a href="/" class="nav-link">Главная</a></li>
+    <li class="nav-item active"><a href="/books" class="nav-link">Книги</a></li>
+    <li class="nav-item"><a href="/authors" class="nav-link">Авторы</a></li>
+{% endblock navbar %}
+
+
+{% block content %}
+    <h1>Каталог книг</h1>
+    {% if query %}
+        {% if res.count > 0 %}
+            <p>Вот, что удалось найти по вашему запросу "{{ query }}":</p>
+            <ul class="list-group">
+                {% for book in res %}
+                    <a href="/books/{{ book.pk }}"><li>
+                        "{{ book }}" —
+                        {% for author in book.author.all%}
+                            {{ author }}{% if not forloop.last %},{% endif %}
+                        {% endfor %}
+                    </li></a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>К сожалению, по вашему запросу "{{ query }}" ничего не найдено</p>
+            <a href="/books">Назад к списку</a>
+        {% endif %}
+    {% else %}
+        {% if books.count > 0 %}
+            <ul class="list-group">
+                {% for book in books %}
+                    <a href="/books/{{ book.pk }}"><li>
+                        "{{ book }}" —
+                        {% for author in book.author.all%}
+                            {{ author }}{% if not forloop.last %},{% endif %}
+                        {% endfor %}
+                    </li></a>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <p>К сожалению, на данный момент база знаний пуста</p>
+        {% endif %}
+    {% endif %}
+
+{% endblock content %}

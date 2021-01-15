@@ -1,0 +1,38 @@
+div.main{
+    height: 11em;
+    margin-bottom: 1em;
+}
+
+div.img{
+    display: inline-block;
+    float: left;
+    margin-right: 2em;
+}
+
+div.img::after{
+    clear: both;
+}
+
+/*div.dscr{*/
+    /*vertical-align: top;*/
+/*}*/
+
+div.dscr h2{
+    margin-bottom: 0.5em;
+}
+
+div.dscr strong{
+    font-weight: 600;
+}
+
+.img img{
+
+    width: 10em;
+    height: 11em;
+}
+
+div.books li{
+    padding: 0;
+    border: none;
+    outline: none;
+}

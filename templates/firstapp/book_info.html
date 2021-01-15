@@ -1,0 +1,49 @@
+{% extends "firstapp/base.html" %}
+
+
+{% block stc %}{% load static %}{% endblock stc %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <link rel="stylesheet" href="{% static "css/info.css" %}">
+{% endblock css %}
+
+
+{% block title %}{{  book.title }}{% endblock title %}
+
+
+{% block navbar %}
+    <li class="nav-item"><a href="/" class="nav-link">Главная</a></li>
+    <li class="nav-item active"><a href="/books/" class="nav-link">Книги</a></li>
+    <li class="nav-item"><a href="/authors/" class="nav-link">Авторы</a></li>
+{% endblock navbar %}
+
+
+{% block content %}
+    <h1>{{ book.title }}</h1>
+    <div class="main">
+        <div class="img">
+            <img src="{% static "images/book-info-default.png" %}">
+        </div>
+        <div class="dscr">
+            <h2>Базовая информация</h2>
+             <p>
+                {% if book.author.all.count > 1 %}
+                    <strong>Авторы:</strong>
+                {% else %}
+                    <strong>Автор:</strong>
+                {% endif %}
+                {% for author in book.author.all%}
+                        {{ author }}{% if not forloop.last %},{% endif %}
+                {% endfor %}
+                <br>
+                <strong>Жанр:</strong> {% for genre in book.genre.all%}
+                        {{ genre }}{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </p>
+            <h2>Описание</h2>
+                <p>
+                    {{ book.description }}
+                </p>
+        </div>
+    </div>
+{% endblock content %}

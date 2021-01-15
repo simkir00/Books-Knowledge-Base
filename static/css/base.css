@@ -1,0 +1,96 @@
+header nav{
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.bg-light {
+    background-color: #d4f2ff !important;
+}
+
+.nav-icon{
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.loupe-icon{
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.search-form{
+    /*margin-left: 35em;*/
+    float: right;
+}
+
+.search-form input {
+    width: 15em;
+    border-color: #909090;
+    padding-left: 0.5em;
+    border-width: 0.1em;
+    border-radius: 0.5em;
+    outline: none;
+}
+
+.search-form button {
+    vertical-align: center;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration { display: none; }
+
+h1{
+    font-size: 1.5em;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+h2{
+    font-size: 1.1em;
+}
+
+p{
+    text-align: justify;
+}
+
+.content li{
+    padding: 0.5em;
+    margin-bottom: 0.3em;
+    list-style-type: none;
+    color: #3a3a3a;
+    border: 1px solid #3a3a3a;
+    border-radius: 0.2em;
+}
+
+.content a:hover{
+    text-decoration: none;
+}
+
+.content a:hover li{
+    color: #06096e;
+    background-color: #f2fff3;
+}
+
+
+footer nav{
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+footer p{
+    vertical-align: center;
+    font-size: 0.95em;
+    font-weight: 400;
+    margin: 0;
+}
+
+footer img{
+    margin: 0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: center;
+}
